@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Politique de confidentialité — StepWise</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:       #020812;
+      --bg-card:  #070f1e;
+      --accent:   #00D4FF;
+      --accent2:  #0096CC;
+      --text:     #e8f0fe;
+      --muted:    rgba(255,255,255,0.45);
+      --border:   rgba(0,212,255,0.12);
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: -200px; left: 50%;
+      transform: translateX(-50%);
+      width: 800px; height: 500px;
+      background: radial-gradient(ellipse, rgba(0,212,255,0.07) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 60px 24px 80px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+
+    .logo-dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 12px var(--accent);
+    }
+
+    .logo-text {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: #fff;
+    }
+
+    header h1 {
+      font-size: clamp(28px, 5vw, 40px);
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+
+    header p {
+      color: var(--muted);
+      font-size: 14px;
+      letter-spacing: 0.3px;
+    }
+
+    .updated {
+      display: inline-block;
+      margin-top: 14px;
+      padding: 5px 14px;
+      border-radius: 20px;
+      background: rgba(0,212,255,0.08);
+      border: 1px solid var(--border);
+      color: var(--accent);
+      font-size: 12px;
+      letter-spacing: 0.5px;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 32px;
+      margin-bottom: 20px;
+      transition: border-color 0.2s;
+    }
+
+    .card:hover { border-color: rgba(0,212,255,0.22); }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+
+    .card-icon {
+      width: 42px; height: 42px;
+      border-radius: 12px;
+      background: rgba(0,212,255,0.08);
+      border: 1px solid rgba(0,212,255,0.18);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 19px;
+      flex-shrink: 0;
+    }
+
+    .card h2 {
+      font-size: 18px;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 0.1px;
+    }
+
+    .card p { color: rgba(255,255,255,0.72); margin-bottom: 12px; }
+    .card p:last-child { margin-bottom: 0; }
+
+    ul {
+      list-style: none;
+      margin-top: 8px;
+    }
+
+    ul li {
+      position: relative;
+      padding-left: 18px;
+      margin-bottom: 8px;
+      color: rgba(255,255,255,0.72);
+    }
+
+    ul li::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 10px;
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--accent);
+      opacity: 0.7;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .tag {
+      padding: 5px 13px;
+      border-radius: 20px;
+      background: rgba(0,212,255,0.06);
+      border: 1px solid rgba(0,212,255,0.18);
+      color: var(--accent);
+      font-size: 12px;
+      letter-spacing: 0.4px;
+      font-weight: 600;
+    }
+
+    .contact-block {
+      background: linear-gradient(135deg, rgba(0,212,255,0.06), rgba(0,150,200,0.04));
+      border: 1px solid rgba(0,212,255,0.2);
+      border-radius: 20px;
+      padding: 32px;
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .contact-block h3 {
+      font-size: 20px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .contact-block p { color: var(--muted); margin-bottom: 20px; }
+
+    .contact-block a {
+      display: inline-block;
+      padding: 12px 28px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      color: #020812;
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: 0.5px;
+      border-radius: 14px;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .contact-block a:hover { opacity: 0.88; }
+
+    footer {
+      text-align: center;
+      margin-top: 56px;
+      color: rgba(255,255,255,0.2);
+      font-size: 13px;
+    }
+
+    footer span { color: var(--accent); opacity: 0.6; }
+
+    @media (max-width: 520px) {
+      .container { padding: 40px 16px 60px; }
+      .card { padding: 22px; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <div class="logo">
+      <div class="logo-dot"></div>
+      <span class="logo-text">StepWise</span>
+    </div>
+    <h1>Politique de confidentialité</h1>
+    <p>Transparence totale sur la façon dont nous traitons tes données.</p>
+    <span class="updated">Dernière mise à jour : juin 2026</span>
+  </header>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon">👋</div>
+      <h2>Introduction</h2>
+    </div>
+    <p>StepWise est une application de bien-être numérique qui t'aide à réduire ton temps d'écran en conditionnant l'accès à tes applications à un objectif de pas quotidien.</p>
+    <p>Cette politique explique quelles données sont collectées, comment elles sont utilisées et comment tu peux exercer tes droits. Nous nous engageons à traiter tes données avec respect et transparence.</p>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon">📋</div>
+      <h2>Données collectées</h2>
+    </div>
+    <p>StepWise collecte uniquement les données nécessaires à son fonctionnement :</p>
+    <ul>
+      <li><strong>Informations de profil</strong> — prénom et adresse e-mail, saisis volontairement lors de la configuration.</li>
+      <li><strong>Données d'activité physique</strong> — nombre de pas comptés via le podomètre de ton appareil.</li>
+      <li><strong>Statistiques d'utilisation</strong> — sessions complétées, série de jours, temps économisé loin des écrans, historique hebdomadaire.</li>
+      <li><strong>Préférences de l'application</strong> — objectif de pas, durée des sessions, liste des applications à bloquer, thème visuel, StepCoins.</li>
+      <li><strong>Informations d'achat</strong> — statut de l'abonnement Premium, géré par RevenueCat.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon">🔒</div>
+      <h2>Stockage et sécurité</h2>
+    </div>
+    <p><strong>Toutes tes données sont stockées localement sur ton appareil</strong> via le stockage sécurisé d'Expo (AsyncStorage). Nous ne gérons aucun serveur propre et tes données personnelles ne quittent jamais ton téléphone.</p>
+    <p>La seule exception concerne les achats in-app : les informations relatives à ton abonnement Premium sont traitées par <strong>RevenueCat</strong>, un service tiers certifié, conformément à leur propre politique de confidentialité.</p>
+    <p>Si tu désinstallles l'application, toutes les données locales sont automatiquement supprimées de ton appareil.</p>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon">🔑</div>
+      <h2>Permissions requises</h2>
+    </div>
+    <p>StepWise demande les permissions suivantes, strictement nécessaires à son fonctionnement :</p>
+    <div class="tags">
+      <span class="tag">Reconnaissance d'activité</span>
+      <span class="tag">Statistiques d'utilisation</span>
+      <span class="tag">Affichage par-dessus les apps</span>
+      <span class="tag">Notifications</span>
+    </div>
+    <ul style="margin-top: 18px;">
+      <li><strong>Reconnaissance d'activité (podomètre)</strong> — pour compter tes pas et valider les sessions.</li>
+      <li><strong>Statistiques d'utilisation</strong> (Android) — pour détecter quelle app est au premier plan et appliquer le blocage.</li>
+      <li><strong>Affichage par-dessus les apps</strong> (Android) — pour afficher l'écran de blocage par-dessus les applications bloquées.</li>
+      <li><strong>Notifications</strong> — pour t'envoyer des rappels de session et des confirmations de déverrouillage.</li>
+    </ul>
+    <p style="margin-top: 16px; font-size: 14px; color: rgba(255,255,255,0.45);">Ces permissions ne sont utilisées qu'à des fins de fonctionnement de l'app et ne sont jamais partagées avec des tiers.</p>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon">🤝</div>
+      <h2>Partage des données</h2>
+    </div>
+    <p>Nous ne vendons, n'échangeons ni ne louons tes données personnelles à des tiers. Les seuls cas où des données transitent hors de ton appareil sont :</p>
+    <ul>
+      <li><strong>RevenueCat</strong> — traitement sécurisé des achats in-app et gestion de l'abonnement Premium.</li>
+      <li><strong>Apple App Store / Google Play</strong> — lors de l'achat, les plateformes traitent les informations de paiement selon leurs propres politiques.</li>
+    </ul>
+    <p>Aucune donnée d'activité physique, de statistiques ou de préférences n'est jamais transmise à des tiers.</p>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon">👶</div>
+      <h2>Utilisation par des mineurs</h2>
+    </div>
+    <p>StepWise n'est pas destiné aux enfants de moins de 13 ans. Nous ne collectons pas sciemment de données personnelles concernant des enfants de moins de 13 ans.</p>
+    <p>Si tu es un parent ou tuteur et que tu penses que ton enfant nous a fourni des données personnelles, contacte-nous afin que nous puissions les supprimer.</p>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon">⚖️</div>
+      <h2>Tes droits (RGPD)</h2>
+    </div>
+    <p>Conformément au Règlement Général sur la Protection des Données (RGPD), tu disposes des droits suivants :</p>
+    <ul>
+      <li><strong>Droit d'accès</strong> — consulter les données que nous détenons te concernant.</li>
+      <li><strong>Droit de rectification</strong> — corriger des données inexactes (depuis les Paramètres de l'app).</li>
+      <li><strong>Droit à l'effacement</strong> — demander la suppression de tes données personnelles.</li>
+      <li><strong>Droit à la portabilité</strong> — recevoir tes données dans un format structuré.</li>
+      <li><strong>Droit d'opposition</strong> — t'opposer au traitement de tes données.</li>
+    </ul>
+    <p style="margin-top: 16px;">La majorité de tes données étant stockées localement, tu peux les supprimer à tout moment en désinstallant l'application. Pour toute demande relative à tes droits, contacte-nous à l'adresse ci-dessous.</p>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon">📝</div>
+      <h2>Modifications de cette politique</h2>
+    </div>
+    <p>Nous pouvons mettre à jour cette politique de confidentialité ponctuellement. Toute modification sera publiée sur cette page avec une nouvelle date de mise à jour.</p>
+    <p>Nous t'encourageons à consulter régulièrement cette page. L'utilisation continue de l'application après modification vaut acceptation de la nouvelle politique.</p>
+  </div>
+
+  <div class="contact-block">
+    <h3>Une question ?</h3>
+    <p>Pour toute demande concernant tes données personnelles ou cette politique de confidentialité, contacte-nous directement.</p>
+    <a href="mailto:stepwise57@gmail.com">stepwise57@gmail.com</a>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 StepWise — Tous droits réservés<br/>
+    Fait avec <span>♥</span> pour un usage numérique plus sain.</p>
+  </footer>
+
+</div>
+</body>
+</html>
